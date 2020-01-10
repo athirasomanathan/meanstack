@@ -9,7 +9,7 @@ export class TodoService {
   constructor(private http:HttpClient) { }
   add()
   {
-    this.http.post('http://localhost:3000/create',{
+    this.http.post('http://localhost:3001/create',{
       "name":"Test2","desc":"desc2"}).subscribe(data=>{
       console.log("data",data);
       alert("Done");
