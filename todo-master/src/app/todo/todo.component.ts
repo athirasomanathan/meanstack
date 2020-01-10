@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router'; 
 import { CommonserviceService } from 'service/commonservice.service';
+import { TodoService } from 'service/todo.service';
 
 
 @Component({
@@ -11,14 +12,16 @@ import { CommonserviceService } from 'service/commonservice.service';
 })
 export class TodoComponent implements OnInit {
 title="Todo";
-todos=[
+todos=[];/*=[
   {name:"todo1", desc:"desc1"},
   {name:"todo2",desc:"desc2"},
   {name:"todo3",desc:"desc3"}
-];
+];*/
 newTodo="";
 todoForm;
-  constructor(private fb:FormBuilder,private router:Router, private commonService:CommonserviceService) {//injection
+  constructor(private fb:FormBuilder,private router:Router,
+     private commonService:CommonserviceService,
+     private todoService:TodoService) {//injection
     this.todoForm=fb.group({
       name :'',
       desc : ''
@@ -27,6 +30,8 @@ todoForm;
    }
 
   ngOnInit() {
+    this.todoService.get()
+    .subscribe(data=>{this.todos=data});
   }
 delete(todo)
 {

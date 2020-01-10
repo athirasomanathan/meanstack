@@ -25,22 +25,22 @@ export class AddtodoComponent implements OnInit {
   ngOnInit() {
   }
   add(){
-    this.todoService.add();
+    this.todoService.add(this.todoForm.value.name,this.todoForm.value.desc);
     if(!this.todoForm.valid){
      alert("enter all required fields");
      return;
   
     }
-    this.todos.push({
+   /* this.todos.push({
       name:this.todoForm.value.name,
       desc:this.todoForm.value.desc
     
-    });
+    });*/
     this.todoForm.reset;
     //this.newTodo=" ";
   }
   onTextChange(event){
     //alert(event.target.value);
-    this.newTodo=event.target.value;
+   // this.newTodo=event.target.value;
   }
 }
