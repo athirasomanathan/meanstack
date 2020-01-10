@@ -1,0 +1,73 @@
+<html>
+	<body>
+	<div>
+    <input type="text" name="text" id="text" value="{{tvalue==0?'':tvalue}}">
+</div>
+<div  >
+	<table>
+	<tr  >
+	<td >
+	<button (click)="onButtonClick('1')" value="1" >1</button>
+	</td>
+	<td >
+	<button (click)="onButtonClick('2')" value="2" >2</button>
+	</td>
+	<td >
+	<button (click)="onButtonClick('3')" value="3"  >3</button>
+	</td>
+	<td >
+	<button (click)="opr('+')" value="+"  >+</button>
+	</td>
+	</tr>
+	<tr  >
+	<td >
+	<button (click)="onButtonClick('4')" value="4"  >4</button>
+	</td>
+	<td>
+	<button (click)="onButtonClick('5')" value="5"  >5</button>
+	</td>
+	<td >
+	<button (click)="onButtonClick('6')" value="6" >6</button>
+	</td>
+	<td >
+	<button (click)="opr('-')" value="-"  >-</button>
+	</td>
+	</tr>
+	<tr  >
+	<td >
+	<button (click)="onButtonClick('7')" value="7" >7</button>
+	</td>
+	<td >
+	<button (click)="onButtonClick(['8'])" value="8" >8</button>
+	</td>
+	<td >
+	<button (click)="onButtonClick('9')" value="9"  >9</button>
+	</td>
+	<td >
+	<button (click)="opr('*')" value="*"  >*</button>
+	</td>
+    </tr>
+    <tr  >
+        <td >
+        <button (click)="onButtonClick('.')" value="." >.</button>
+		</td>
+		<td >
+			<button (click)="equ()" value="="  >=</button>
+			</td>
+       
+        
+        <td >
+        <button (click)="onButtonClick('0')" value="0"  >0</button>
+		</td>
+		
+		<td >
+		<button (click)="opr('/')" value="/"  >/</button>
+		</td>
+		<td >
+			<button (click)="clear(' ')" value="clear" >AC</button>
+			</td>
+        </tr>
+	</table>
+	</div>
+	</body>
+	</html>

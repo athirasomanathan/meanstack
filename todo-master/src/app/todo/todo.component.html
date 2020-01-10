@@ -1,0 +1,24 @@
+<h1>{{title}}</h1>
+
+    <button (click)='view()'>Add</button>
+
+    <table>
+    <thead>
+        <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngIf="todos.length==0">No  todos..</tr>
+        <tr *ngFor="let todo of todos; let i=index">
+            <td>{{i}}</td>
+            <td>{{todo.name}}</td>
+            <td>{{todo.desc}}</td>
+            <td (click)="delete(todo)">Delete</td>
+            
+        </tr>
+    </tbody>
+</table>
