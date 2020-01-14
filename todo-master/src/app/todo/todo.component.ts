@@ -12,7 +12,7 @@ import { TodoService } from 'service/todo.service';
 })
 export class TodoComponent implements OnInit {
 title="Todo";
-todos=[];/*=[
+todos:any=[];/*=[
   {name:"todo1", desc:"desc1"},
   {name:"todo2",desc:"desc2"},
   {name:"todo3",desc:"desc3"}
