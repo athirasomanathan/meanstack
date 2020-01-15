@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { TodoService } from '../service/todo.service';
 
 @Component({
@@ -15,9 +15,19 @@ export class EdittodoComponent implements OnInit {
     private route:ActivatedRoute,
      private fb:FormBuilder, 
      private todoService:TodoService) {
-    this.todoForm=fb.group({
+    /*this.todoForm=fb.group({
       name :'',
       desc : ''
+    });*/
+    this.todoForm=this.fb.group({
+      name:new FormControl('',[
+        Validators.required,
+        Validators.minLength(3)
+      ]),
+      desc: new FormControl('',[
+        Validators.required,
+        Validators.minLength(5)
+      ]),
     });
    }
 
@@ -28,7 +38,7 @@ export class EdittodoComponent implements OnInit {
       .subscribe((data:any)=>{
         this.todoForm.setValue({
           name:data.name,
-          desc:data.description
+          desc:data.description||''
         })
       })
     });
@@ -36,14 +46,22 @@ export class EdittodoComponent implements OnInit {
   edit(){
     
     if(!this.todoForm.valid){
-     alert("enter all required fields");
-     this.todoService.add(this.todoForm.value.name,this.todoForm.value.desc);
-     return;
+      if(this.todoForm.get('name').errors!=null)
+      {
+          //error=true;
+        alert("You have error in name");
+      }
+      if(this.todoForm.controls.desc.errors!=null)
+      {
+        alert("You have error in desc");
+      }
+    }else{
+
+      this.todoService.edit(this.id,this.todoForm.value.name,this.todoForm.value.desc)
+      .subscribe(data=>{this.todoForm.reset();
+      this.router.navigate(['todo']);
+    });
     }
-    this.todoService.edit(this.id,this.todoForm.value.name,this.todoForm.value.desc)
-    .subscribe(data=>{this.todoForm.reset();
-    this.router.navigate(['todo']);
-  });
   
     }
 }

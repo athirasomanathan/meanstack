@@ -1,5 +1,6 @@
-<form [formGroup]="todoForm" (ngSubmit)="add()">
-    <input formControlName="name" name="todo" type="text" required>
+<form [formGroup]="todoForm" (ngSubmit)="edit()">
+    <input formControlName="name" name="todo" type="text" >
+    <p *ngIf='error'>you have an error</p>
     <input formControlName="desc" name="tododesc" type="text">
     <button type="submit">Add</button>
  </form>

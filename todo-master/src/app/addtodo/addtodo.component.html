@@ -1,5 +1,11 @@
 <form [formGroup]="todoForm" (ngSubmit)="add()">
-    <input formControlName="name" name="todo" type="text" required>
+    <div>
+    <input formControlName="name" name="todo" type="text">
+    <div *ngIf="todoForm.get('name').errors && (todoForm.get('name').dirty||todoForm.get('name').touch)">
+        <p *ngIf="todoForm.get('name').errors.required">name is required</p>
+        <p *ngIf="todoForm.get('name').errors.minlength">minimum length is 2</p>
+    </div>
+    </div>
     <input formControlName="desc" name="tododesc" type="text">
     <button type="submit">Add</button>
  </form>
