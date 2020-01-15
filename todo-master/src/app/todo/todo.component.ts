@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router'; 
-import { CommonserviceService } from 'service/commonservice.service';
-import { TodoService } from 'service/todo.service';
+import { CommonserviceService } from '../service/commonservice.service';
+import { TodoService } from '../service/todo.service';
 
 
 @Component({

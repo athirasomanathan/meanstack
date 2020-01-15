@@ -7,6 +7,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { AddtodoComponent } from './addtodo/addtodo.component'
 import{HttpClientModule} from '@angular/common/http';
+import { EdittodoComponent } from './edittodo/edittodo.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import{HttpClientModule} from '@angular/common/http';
     AppComponent,
     TodoComponent,
     LoginComponent,
-    AddtodoComponent
+    AddtodoComponent,
+    EdittodoComponent
   ],
   imports: [
     BrowserModule,
