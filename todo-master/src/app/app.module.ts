@@ -8,6 +8,9 @@ import { LoginComponent } from './login/login.component';
 import { AddtodoComponent } from './addtodo/addtodo.component'
 import{HttpClientModule} from '@angular/common/http';
 import { EdittodoComponent } from './edittodo/edittodo.component';
+import { CustomPipe } from './pipes/custom.pipe';
+import { CustomdirectiveDirective } from './directives/customdirective.directive';
+import { HeaderComponent } from './components/header/header.component';
 
 
 @NgModule({
@@ -16,7 +19,10 @@ import { EdittodoComponent } from './edittodo/edittodo.component';
     TodoComponent,
     LoginComponent,
     AddtodoComponent,
-    EdittodoComponent
+    EdittodoComponent,
+    CustomPipe,
+    CustomdirectiveDirective,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
