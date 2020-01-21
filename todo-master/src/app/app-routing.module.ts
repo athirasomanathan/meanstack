@@ -4,6 +4,7 @@ import { LoginComponent } from './login/login.component';
 import { TodoComponent } from './todo/todo.component';
 import{AddtodoComponent} from './addtodo/addtodo.component'
 import { EdittodoComponent } from './edittodo/edittodo.component';
+import { RegisterComponent } from './register/register.component';
 
 
 const routes: Routes = [
@@ -11,6 +12,7 @@ const routes: Routes = [
   {path:'todo', component:TodoComponent},
   {path:'add', component:AddtodoComponent},
   {path:'edit/:id', component:EdittodoComponent},
+  {path:'register', component:RegisterComponent},
   {path:'',component:LoginComponent}
 ];
 
